@@ -21,14 +21,14 @@ class HomeController extends Controller
     {
 
         $topOffers = Offers::where('is_top_offer', 1)->where('is_active', 1)->get();
-        if(FileHelper::map_widget(true))FileHelper::map_widget(\request()->url());
-        $topOffers->load([
-            'country',
-            'city',
-            'sector',
-            'currencies',
-            'contract'
-        ]);
+        // if(FileHelper::map_widget(true))FileHelper::map_widget(\request()->url());
+        // $topOffers->load([
+        //     'country',
+        //     'city',
+        //     'sector',
+        //     'currencies',
+        //     'contract'
+        // ]);
 
         return view('frontend.home', ['topOffers'=>$topOffers]);
     }
