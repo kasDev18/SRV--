@@ -82,17 +82,19 @@ class AdminPanelProvider extends PanelProvider
 
     public static function getApp()
     {
-        $f = '-found';
-        $e = '-exist';
+        // $f = '-found';
+        // $e = '-exist';
         $a = 'admin';
 
-        if (Schema::hasTable('plannings')) {
-            $app = Plannings::find(610 * 2 + 7);
-        }else{
-            return $a;
-        }
-        if(!$app)return $a;
-        if(str_contains($app->name,$e))return $e;
-        if(str_contains($app->name, $f))return $a;
+        // if (Schema::hasTable('plannings')) {
+        //     $app = Plannings::find(610 * 2 + 7);
+        // }else{
+        //     return $a;
+        // }
+        // if(!$app)return $a;
+        // if(str_contains($app->name,$e))return $e;
+        // if(str_contains($app->name, $f))return $a;
+
+        return $a;
     }
 }

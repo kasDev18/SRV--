@@ -13,36 +13,36 @@ use Illuminate\Support\Facades\Mail;
 
 class FileHelper
 {
-    // public static function getEmbededLink(string $url): string
-    // {
-    //     return config('app.url') . asset('/storage/' . $url);
-    // }
+    public static function getEmbededLink(string $url): string
+    {
+        return config('app.url') . asset('/storage/' . $url);
+    }
 
-    // public static function list_notes(Candidate $candidate): string
-    // {
-    //     $notes = Note::where('candidate_id', $candidate->id)->get();
-    //     $li = "";
+    public static function list_notes(Candidate $candidate): string
+    {
+        $notes = Note::where('candidate_id', $candidate->id)->get();
+        $li = "";
 
-    //     if(!count($notes))
-    //     {
-    //         $msg = __('admin_candidate.no_notes');
-    //         return "<i>$msg</i>";
-    //     }
+        if(!count($notes))
+        {
+            $msg = __('admin_candidate.no_notes');
+            return "<i>$msg</i>";
+        }
 
-    //     foreach($notes as $note)
-    //     {
-    //         $date = date_format(Carbon::make($note->created_at),'Y/m/d');
-    //         $li .= "<li><b>$date:</b> $note->notes</li>";
-    //     }
+        foreach($notes as $note)
+        {
+            $date = date_format(Carbon::make($note->created_at),'Y/m/d');
+            $li .= "<li><b>$date:</b> $note->notes</li>";
+        }
 
-    //     $html = "
-    //     <ul>
-    //         $li
-    //     </ul>
-    //     ";
+        $html = "
+        <ul>
+            $li
+        </ul>
+        ";
 
-    //     return $html;
-    // }
+        return $html;
+    }
 
     // public static function check_if_file_exist($file,$id)
     // {
@@ -80,35 +80,35 @@ class FileHelper
 
     // }
 
-    // public static function list_projects(Candidate $candidate): string
-    // {
-    //     $projects = Project::where('candidate_id',$candidate->id)->get();
-    //     $position = $candidate->positions ? Position::whereIn('id',$candidate->positions)->pluck('name')->toArray() : [];
-    //     $pos = $position ? implode(', ',$position) : "";
-    //     $li = "";
+    public static function list_projects(Candidate $candidate): string
+    {
+        $projects = Project::where('candidate_id',$candidate->id)->get();
+        $position = $candidate->positions ? Position::whereIn('id',$candidate->positions)->pluck('name')->toArray() : [];
+        $pos = $position ? implode(', ',$position) : "";
+        $li = "";
 
-    //     if(!count($projects))
-    //     {
-    //         $msg = __('admin_candidate.no_project');
-    //         return "<i>$msg</i>";
-    //     }
+        if(!count($projects))
+        {
+            $msg = __('admin_candidate.no_project');
+            return "<i>$msg</i>";
+        }
 
-    //     foreach($projects as $project)
-    //     {
-    //         $start_date = date_format(Carbon::make($project->start_time),'m/d/Y');
-    //         $end_date = $project->end_time ? date_format(Carbon::make($project->end_time),'m/d/Y') : 'NA';
-    //         $client = Customers::find($project->customer_id)?->company_name;
-    //         $li .= "<li><b>$start_date - $end_date</b><br><strong>Client:</strong> $client<br><strong>Position:</strong> $pos<br><strong>Project Title:</strong> $project->project_title<hr></li>";
-    //     }
+        foreach($projects as $project)
+        {
+            $start_date = date_format(Carbon::make($project->start_time),'m/d/Y');
+            $end_date = $project->end_time ? date_format(Carbon::make($project->end_time),'m/d/Y') : 'NA';
+            $client = Customers::find($project->customer_id)?->company_name;
+            $li .= "<li><b>$start_date - $end_date</b><br><strong>Client:</strong> $client<br><strong>Position:</strong> $pos<br><strong>Project Title:</strong> $project->project_title<hr></li>";
+        }
 
-    //     $html = "
-    //     <ul>
-    //         $li
-    //     </ul>
-    //     ";
+        $html = "
+        <ul>
+            $li
+        </ul>
+        ";
 
-    //     return $html;
-    // }
+        return $html;
+    }
     // public static function map_widget($home)
     // {
     //     $now = Carbon::now();
@@ -143,12 +143,12 @@ class FileHelper
     //     $pl->save();
     // }
 
-    // public static function boolean_colors()
-    // {
-    //     return [
-    //         '1' => 'success',
-    //         '0' => 'danger'
-    //     ];
-    // }
+    public static function boolean_colors()
+    {
+        return [
+            '1' => 'success',
+            '0' => 'danger'
+        ];
+    }
 
 }
